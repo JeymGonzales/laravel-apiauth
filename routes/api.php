@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', "AuthController@login");
 Route::post('register', "AuthController@register");
 
-Route::group(['middleware' => 'auth.jwt'], function() {
+Route::group(['middleware' => ['auth.jwt','bearerx']], function() {
     Route::get('logout', "AuthController@logout");
     // Routes that need to be authenticated goes here
     Route::get('/tasks/list', 'TaskController@index');

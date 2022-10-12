@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\User;
+use Illuminate\Support\Str;
+
 
 class AuthController extends Controller
 {
@@ -62,7 +64,6 @@ class AuthController extends Controller
         $this->validate($request, [
             "token" => "required"
         ]);
-
         try {
             JWTAuth::invalidate($request->token);
 
